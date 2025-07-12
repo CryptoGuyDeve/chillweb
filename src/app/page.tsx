@@ -1,10 +1,19 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { getQueryClient, trpc } from "@/trpc/server";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { Client } from "./client";
+import { Suspense } from "react";
 
-export default function Home() {
+const Page = async () => {
+  const queryClient = getQueryClient();
+  void queryClient.prefetchQuery(trpc.createAI.queryOptions({ text: "Crypto PREFETCH" }))
+
   return (
-    <div>
-      <Button>Ayoo Wassup Nigga</Button>
-    </div>
-  );
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Client />
+      </Suspense>
+    </HydrationBoundary>
+  )
 }
+
+export default Page;
