@@ -1,0 +1,17 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (tmpu3nfk0d7tatbhgigq) or template name (chillweb-nextjs-test) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("chillweb-nextjs-test") # Sync sandbox
+# sandbox = await AsyncSandbox.create("chillweb-nextjs-test") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('chillweb-nextjs-test')
+
+team_id = "e5ddc616-8289-4015-927c-2242c9c58bac"
+start_cmd = "bash /compile_page.sh"
+dockerfile = "e2b.Dockerfile"
+template_name = "chillweb-nextjs-test"
+template_id = "tmpu3nfk0d7tatbhgigq"
